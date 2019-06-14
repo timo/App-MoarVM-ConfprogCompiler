@@ -1,9 +1,10 @@
 use v6.c;
-unit class App::MoarVM::ConfprogCompiler:ver<0.0.1>:auth<cpan:TIMOTIMO>;
+unit class App::MoarVM::ConfprogCompiler:ver<0.0.2>:auth<cpan:TIMOTIMO>;
 
 use App::MoarVM::ConfprogCompiler::Parser;
 use App::MoarVM::ConfprogCompiler::Typesystem::Unifier;
 use App::MoarVM::ConfprogCompiler::Compiler;
+use App::MoarVM::ConfprogCompiler::Serializer;
 
 use Data::Dump::Tree;
 
@@ -12,7 +13,8 @@ our class ConfprogCompiler is export {
         my $parseresult = parse-confprog($sourcecode);
         my $parse-ast = $parseresult.ast;
         my $unified = unify-ast-types($parse-ast);
-        my $result = compile-confprog($unified);
+        my $compiled = compile-confprog($unified);
+        serialize-confprog($compiled);
     }
 }
 

@@ -2,5 +2,8 @@ Revision history for App-MoarVM-ConfprogCompiler
 
 {{$NEXT}}
 
+0.0.2  2019-06-14T22:37:51+02:00
+    - Added serializer code so that moarvm can be fed the confprog
+
 0.0.1  2019-06-14T22:00:45+02:00
     - Initial version

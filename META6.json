@@ -16,6 +16,7 @@
     "App::MoarVM::ConfprogCompiler::Parser" : "lib/App/MoarVM/ConfprogCompiler/Parser.pm6",
     "App::MoarVM::ConfprogCompiler::Parser::Actions" : "lib/App/MoarVM/ConfprogCompiler/Parser/Actions.pm6",
     "App::MoarVM::ConfprogCompiler::Parser::Grammar" : "lib/App/MoarVM/ConfprogCompiler/Parser/Grammar.pm6",
+    "App::MoarVM::ConfprogCompiler::Serializer" : "lib/App/MoarVM/ConfprogCompiler/Serializer.pm6",
     "App::MoarVM::ConfprogCompiler::Typesystem" : "lib/App/MoarVM/ConfprogCompiler/Typesystem.pm6",
     "App::MoarVM::ConfprogCompiler::Typesystem::Unifier" : "lib/App/MoarVM/ConfprogCompiler/Typesystem/Unifier.pm6"
   },
@@ -23,5 +24,5 @@
   "source-url" : "https://github.com/timo/App-MoarVM-ConfprogCompiler.git",
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.0.1"
+  "version" : "0.0.2"
 }
