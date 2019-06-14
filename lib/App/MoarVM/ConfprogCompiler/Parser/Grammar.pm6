@@ -4,7 +4,7 @@ grammar ConfProg {
         <statement>+ %% <.eol>
     }
 
-    regex eol { \s* ';' \n* | \s* \n+ | \s* \n* $$ }
+    regex eol { \s* ';' \n* \s* | \s* \n+ \s* | \s* \n* $$ | <?after ':'> \s* }
 
     proto regex statement { * }
 
@@ -12,13 +12,13 @@ grammar ConfProg {
         <variable> \s+ <update_op> \s+ <expression>
     }
     regex statement:<entrypoint> {
-        'entry' \s+ $<entrypoint>=[
+        'entry' \s+ [$<entrypoint>=[
             | 'profiler_static'
             | 'profiler_dynamic'
             | 'spesh'
             | 'jit'
             | 'heapsnapshot'
-        ] \s*
+        ] || { die "don't know this entrypoint" }] \s*
         ":"
     }
 
