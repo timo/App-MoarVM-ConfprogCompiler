@@ -7,7 +7,7 @@ use App::MoarVM::ConfprogCompiler::Compiler;
 
 use Data::Dump::Tree;
 
-class ConfprogCompiler {
+our class ConfprogCompiler is export {
     method compile($sourcecode) {
         my $parseresult = parse-confprog($sourcecode);
         my $parse-ast = $parseresult.ast;
@@ -16,7 +16,7 @@ class ConfprogCompiler {
     }
 }
 
-proto sub MAIN(|) is export {*}
+proto sub MAIN(|) is export(:MAIN) {*}
 
 multi sub MAIN($filename, Bool :$*debug) {
     ConfprogCompiler.compile($filename.IO.slurp);

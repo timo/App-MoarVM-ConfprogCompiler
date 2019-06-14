@@ -4,13 +4,13 @@ use Test;
 {
     use App::MoarVM::ConfprogCompiler;
 
-    lives-ok { MAIN(e => q:to/PRG/); }
+    lives-ok { ConfprogCompiler.compile(q:to/PRG/); }
         version = 1;
         entry profiler_static:
         log = "test log";
         PRG
 
-    lives-ok { MAIN(e => q:to/PRG2/); }
+    lives-ok { ConfprogCompiler.compile(q:to/PRG2/); }
         version = 1;
         entry profiler_static:
         log = "static entrypoint";
@@ -20,14 +20,14 @@ use Test;
         profile = 1;
         PRG2
 
-    lives-ok { MAIN(e => q:to/PRG3/); }
+    lives-ok { ConfprogCompiler.compile(q:to/PRG3/); }
         version = 1;
         entry heapsnapshot:
         log = "heap snapshot entrypoint";
         snapshot = 1;
         PRG3
 
-    lives-ok { MAIN(e => q:to/PRG4/); }
+    lives-ok { ConfprogCompiler.compile(q:to/PRG4/); }
         version = 1;
         entry heapsnapshot:
         log = "heapsnapshot entrypoint";
@@ -41,6 +41,6 @@ use Test;
         log = "spesh entrypoint";
         PRG4
 
-    lives-ok { MAIN(e => 'version = 1; entry jit: log = "single line, cool.";'); }
+    lives-ok { ConfprogCompiler.compile('version = 1; entry jit: log = "single line, cool.";'); }
 }
 done-testing;
