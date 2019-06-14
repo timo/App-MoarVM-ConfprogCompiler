@@ -1,19 +1,23 @@
+[![Build Status](https://travis-ci.org/timo/App-MoarVM-ConfprogCompiler.svg?branch=master)](https://travis-ci.org/timo/App-MoarVM-ConfprogCompiler)
+
 NAME
 ====
 
-App::MoarVM::ConfprogCompiler - blah blah blah
+App::MoarVM::ConfprogCompiler - Compiler for MoarVM's confprog subsystem
 
 SYNOPSIS
 ========
 
 ```perl6
 use App::MoarVM::ConfprogCompiler;
+
+ConfprogCompiler.compile($sourcecode);
 ```
 
 DESCRIPTION
 ===========
 
-App::MoarVM::ConfprogCompiler is ...
+App::MoarVM::ConfprogCompiler will parse a domain-specific language for defining the behavior of specific pluggable moarvm subsystems, such as the instrumented or heapsnapshot profiler.
 
 AUTHOR
 ======

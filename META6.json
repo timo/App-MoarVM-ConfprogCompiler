@@ -5,7 +5,7 @@
   ],
   "build-depends" : [ ],
   "depends" : [ ],
-  "description" : "blah blah blah",
+  "description" : "Compiler for MoarVM's confprog subsystem",
   "license" : "Artistic-2.0",
   "name" : "App::MoarVM::ConfprogCompiler",
   "perl" : "6.c",
@@ -20,7 +20,7 @@
     "App::MoarVM::ConfprogCompiler::Typesystem::Unifier" : "lib/App/MoarVM/ConfprogCompiler/Typesystem/Unifier.pm6"
   },
   "resources" : [ ],
-  "source-url" : "",
+  "source-url" : "https://github.com/timo/App-MoarVM-ConfprogCompiler.git",
   "tags" : [ ],
   "test-depends" : [ ],
   "version" : "0.0.1"

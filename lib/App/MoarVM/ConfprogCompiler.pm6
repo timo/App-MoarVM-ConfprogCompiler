@@ -30,7 +30,7 @@ multi sub MAIN(:$e, Bool :$*debug) {
 
 =head1 NAME
 
-App::MoarVM::ConfprogCompiler - blah blah blah
+App::MoarVM::ConfprogCompiler - Compiler for MoarVM's confprog subsystem
 
 =head1 SYNOPSIS
 
@@ -38,11 +38,15 @@ App::MoarVM::ConfprogCompiler - blah blah blah
 
 use App::MoarVM::ConfprogCompiler;
 
+ConfprogCompiler.compile($sourcecode);
+
 =end code
 
 =head1 DESCRIPTION
 
-App::MoarVM::ConfprogCompiler is ...
+App::MoarVM::ConfprogCompiler will parse a domain-specific language for
+defining the behavior of specific pluggable moarvm subsystems, such as the
+instrumented or heapsnapshot profiler.
 
 =head1 AUTHOR
 
