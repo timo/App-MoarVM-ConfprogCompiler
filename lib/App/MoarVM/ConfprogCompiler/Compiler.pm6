@@ -91,6 +91,10 @@ multi sub compile_node(Var $var, :$target) {
                 %op-gen<const_s>(0, "");
                 %op-gen<getattr_o>($target, STRUCT_ACCUMULATOR, STRUCT_SELECT, "staticframe", 0);
             }
+            when "frame" {
+                %op-gen<const_s>(0, "");
+                %op-gen<getattr_o>($target, STRUCT_ACCUMULATOR, STRUCT_SELECT, "frame", 0);
+            }
             default {
                 die "builtin variable $var.name() NYI";
             }

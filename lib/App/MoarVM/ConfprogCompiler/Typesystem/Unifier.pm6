@@ -16,7 +16,8 @@ my %targets = %(
 
 my %builtins = %(
     sf => MVMStaticFrame,
-    frame => MVMFrame
+    frame => MVMFrame,
+    time => CPInt,
 );
 
 our proto sub unify_type($) is export {*}
