@@ -41,6 +41,8 @@ use Test;
         log = "spesh entrypoint";
         PRG4
 
-    lives-ok { ConfprogCompiler.compile('version = 1; entry jit: log = "single line, cool.";'); }
+    my $prog-result;
+    lives-ok { $prog-result = ConfprogCompiler.compile('version = 1; entry jit: log = "single line, cool.";'); }
+    "test.mvmconfprog".IO.spurt($prog-result);
 }
 done-testing;

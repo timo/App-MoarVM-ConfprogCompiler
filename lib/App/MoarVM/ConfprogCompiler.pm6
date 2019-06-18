@@ -1,5 +1,5 @@
 use v6.c;
-unit class App::MoarVM::ConfprogCompiler:ver<0.0.2>:auth<cpan:TIMOTIMO>;
+unit class App::MoarVM::ConfprogCompiler:ver<0.0.3>:auth<cpan:TIMOTIMO>;
 
 use App::MoarVM::ConfprogCompiler::Parser;
 use App::MoarVM::ConfprogCompiler::Typesystem::Unifier;
@@ -44,11 +44,22 @@ ConfprogCompiler.compile($sourcecode);
 
 =end code
 
+=begin code
+
+confprog-compile -e="version = 1; entry profiler_static: profile = choice(1, 2, 3, 4); log = "hello";' -o=example.mvmconfprog
+perl6 --confprog=example.mvmconfprog --profile -e '.say for (^100_000).grep(*.is-prime).tail(5)'
+
+=end code
+
 =head1 DESCRIPTION
 
-App::MoarVM::ConfprogCompiler will parse a domain-specific language for
+C<App::MoarVM::ConfprogCompiler> will parse a domain-specific language for
 defining the behavior of specific pluggable moarvm subsystems, such as the
 instrumented or heapsnapshot profiler.
+
+A commandline utility named C<confprog-compile> is provided that takes a program
+as a filename or a literal string and outputs a hexdump (compatible with
+K<xxd -r>) or to an output file passed on the commandline.
 
 =head1 AUTHOR
 

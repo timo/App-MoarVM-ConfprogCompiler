@@ -3,6 +3,7 @@ unit module App::MoarVM::ConfprogCompiler::Typesystem;
 our class CPType is export { ... }
 
 my \CPInt    = CPType.new(name => "Int", :numeric, :stringy);
+my \CPNum    = CPType.new(name => "Num", :numeric, :stringy);
 my \CPString = CPType.new(name => "String", :stringy);
 my \CString  = CPType.new(name => "CString", :stringy);
 
