@@ -1,0 +1,42 @@
+#!/usr/bin/env perl6
+use v6.c;
+
+use App::MoarVM::ConfprogCompiler;
+
+sub hexdump($buf) {
+    my $position = 0;
+    for $buf.list.rotor(16, :partial) -> @line {
+        my $leftpart = join " ", do
+            for @line.rotor(2, :partial) -> @piece {
+                @piece.fmt("%02x", "");
+            };
+        my $rightpart = join "", do
+            for @line {
+                chr($_) ~~ ("A".."z") | ("0".."9") ?? chr($_) !! "."
+            };
+        say "$position.fmt("%08x"): $leftpart.fmt("% -40s")  $rightpart";
+        $position += 16;
+    }
+}
+
+multi sub MAIN($filename, :$o?, Bool :$*debug) {
+    my $outfile = $o;
+    my $result = ConfprogCompiler.compile($filename.IO.slurp);
+    with $outfile {
+        $outfile.IO.spurt($result);
+    }
+    else {
+        hexdump($result);
+    }
+}
+
+multi sub MAIN(:$e, :$o?, Bool :$*debug) {
+    my $outfile = $o;
+    my $result = ConfprogCompiler.compile($e);
+    with $outfile {
+        $outfile.IO.spurt($result);
+    }
+    else {
+        hexdump($result);
+    }
+}
