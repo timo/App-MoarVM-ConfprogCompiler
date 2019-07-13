@@ -1,3 +1,5 @@
+constant @entrypoints = <profiler_static profiler_dynamic spesh jit heapsnapshot>;
+
 grammar ConfProg {
     regex TOP {
         ["version" \s* "=" \s* "1" <.eol> || { die "Program has to start with a version. Only version = 1 is supported here" }]:
@@ -11,14 +13,11 @@ grammar ConfProg {
     regex statement:<var_update> {
         <variable> \s+ <update_op> \s+ <expression>
     }
+
     regex statement:<entrypoint> {
-        'entry' \s+ [$<entrypoint>=[
-            | 'profiler_static'
-            | 'profiler_dynamic'
-            | 'spesh'
-            | 'jit'
-            | 'heapsnapshot'
-        ] || { die "don't know this entrypoint" }] \s*
+        'entry' \s+ {} [$<entrypoint>=[
+            @entrypoints
+        ] || $<rubbish>=<-[:]>* { die "don't know this entrypoint: $/<rubbish>.Str.perl(), try one of: @entrypoints.join(", ")" }] \s*
         ":"
     }
 
