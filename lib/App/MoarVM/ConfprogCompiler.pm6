@@ -6,8 +6,6 @@ use App::MoarVM::ConfprogCompiler::Typesystem::Unifier;
 use App::MoarVM::ConfprogCompiler::Compiler;
 use App::MoarVM::ConfprogCompiler::Serializer;
 
-use Data::Dump::Tree;
-
 our class ConfprogCompiler is export {
     method compile($sourcecode) {
         my $parseresult = parse-confprog($sourcecode);
