@@ -1,6 +1,8 @@
 Revision history for App-MoarVM-ConfprogCompiler
 
 {{$NEXT}}
+
+0.0.4  2019-07-14T00:01:49+02:00
     - Removed left-over unused Data::Dump::Tree usage
     - Handle parse errors better
 
