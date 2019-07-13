@@ -8,7 +8,13 @@ use App::MoarVM::ConfprogCompiler::Serializer;
 
 our class ConfprogCompiler is export {
     method compile($sourcecode) {
+        without $sourcecode {
+            die "No source code provided";
+        }
         my $parseresult = parse-confprog($sourcecode);
+        without $parseresult {
+            die "Failed to parse the program";
+        }
         my $parse-ast = $parseresult.ast;
         my $unified = unify-ast-types($parse-ast);
         my $compiled = compile-confprog($unified);

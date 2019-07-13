@@ -28,6 +28,10 @@ multi sub MAIN($filename, :$o?, Bool :$*debug) {
     else {
         hexdump($result);
     }
+    CATCH {
+        say "Confprog Compilation failed: $_.message()";
+        exit(1);
+    }
 }
 
 multi sub MAIN(:$e, :$o?, Bool :$*debug) {
@@ -38,5 +42,9 @@ multi sub MAIN(:$e, :$o?, Bool :$*debug) {
     }
     else {
         hexdump($result);
+    }
+    CATCH {
+        say "Confprog Compilation failed: $_.message()";
+        exit(1);
     }
 }
