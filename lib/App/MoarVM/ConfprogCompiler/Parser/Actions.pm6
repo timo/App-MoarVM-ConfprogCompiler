@@ -29,8 +29,8 @@ our class ConfProgActions is export {
     has %.labels;
 
     method prefixop($/) { make $/.Str }
-    method compop($/)   { say $/.Str; make %op-to-op{$/.Str} }
-    method arithop($/)   { say $/.Str; make %op-to-op{$/.Str} }
+    method compop($/)   { make %op-to-op{$/.Str} }
+    method arithop($/)   { make %op-to-op{$/.Str} }
 
     method variable:<custom>($/)    { make Var.new( name => $/.Str, scope => "my") }
     method variable:<builtin>($/)   { make Var.new( name => $/.Str, scope => "builtin") }
