@@ -1,6 +1,6 @@
 grammar ConfProg {
     regex TOP {
-        "version" \s* "=" \s* "1" <.eol>
+        ["version" \s* "=" \s* "1" <.eol> || { die "Program has to start with a version. Only version = 1 is supported here" }]:
         <statement>+ %% <.eol>
     }
 
