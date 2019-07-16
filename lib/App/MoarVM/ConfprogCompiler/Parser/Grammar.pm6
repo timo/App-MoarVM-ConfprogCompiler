@@ -103,6 +103,9 @@ grammar ConfProg {
         | '||'
         | "and"
         | "or"
+        | "xor"
+        | "=="
+        | "!="
         ]
     }
 
