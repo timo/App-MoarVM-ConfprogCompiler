@@ -10,7 +10,7 @@ use MASTOps:from<NQP>;
 
 my %original-op-gen := MAST::Ops.WHO<%generators>;
 
-my %op-gen = %(
+my %op-gen is default(-> |c { die "invalid op requested" }) = %(
     do for %original-op-gen.keys {
         $_ => -> |c { %original-op-gen{$_}(|c); if $*debug { $*MAST_FRAME.dump-new-stuff() } }
     }
