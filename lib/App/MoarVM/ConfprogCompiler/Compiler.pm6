@@ -272,7 +272,7 @@ multi sub compile_node(Op $op, :$target) {
                 $*REGALLOC.release($targetreg)
             }
         }
-        when any(<eq_s ne_s add_i sub_i mul_i div_i>)  {
+        when any(<eq_s ne_s add_i sub_i mul_i div_i band_i bor_i bxor_i>)  {
             my $lhs = $op.children[0];
             my $rhs = $op.children[1];
 

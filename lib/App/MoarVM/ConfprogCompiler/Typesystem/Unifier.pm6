@@ -54,7 +54,7 @@ multi sub unify_type(Op $node) {
             die "rhs of string op must be stringy" unless $rhs.type.stringy;
             $node.type = CPInt;
         }
-        when any(<and_i or_i add_i sub_i mul_i div_i>) {
+        when any(<band_i bor_i bxor_i add_i sub_i mul_i div_i>) {
             my $lhs = $node.children[0];
             my $rhs = $node.children[1];
 

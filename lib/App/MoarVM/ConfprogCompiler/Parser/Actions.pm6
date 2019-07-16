@@ -8,10 +8,11 @@ my %op-to-op = <
     != ne_i
     eq eq_s
     ne ne_s
-    && and_i
-    || or_i
-    and and_i
-    or or_i
+    && band_i
+    || bor_i
+    and band_i
+    or bor_i
+    xor bxor_i
     + add_i
     - sub_i
     * mul_i
