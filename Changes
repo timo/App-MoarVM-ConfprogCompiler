@@ -2,6 +2,10 @@ Revision history for App-MoarVM-ConfprogCompiler
 
 {{$NEXT}}
 
+0.0.6  2019-07-16T22:56:27+02:00
+    - Actually activate xor properly
+    - Implement == and != comparison ops
+
 0.0.5  2019-07-16T21:31:06+02:00
     - Give tracebacks on failure when --debug passed
     - Some internal error message improvements
