@@ -30,6 +30,9 @@ multi sub MAIN($filename, :$o?, Bool :$*debug) {
     }
     CATCH {
         say "Confprog Compilation failed: $_.message()";
+        if $*debug {
+            say $_.backtrace.full;
+        }
         exit(1);
     }
 }
@@ -45,6 +48,9 @@ multi sub MAIN(:$e, :$o?, Bool :$*debug) {
     }
     CATCH {
         say "Confprog Compilation failed: $_.message()";
+        if $*debug {
+            say $_.backtrace.full;
+        }
         exit(1);
     }
 }
