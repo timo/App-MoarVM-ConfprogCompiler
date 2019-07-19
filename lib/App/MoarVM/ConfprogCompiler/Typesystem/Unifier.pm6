@@ -163,8 +163,6 @@ multi sub unify_type(Any $_) {
     Any
 }
 
-use Data::Dump::Tree;
-
 our sub unify-ast-types($ast) is export {
     my %*LEXPAD;
     for $ast.list {
