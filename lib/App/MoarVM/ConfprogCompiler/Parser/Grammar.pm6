@@ -1,6 +1,8 @@
+unit module App::MoarVM::ConfprogCompiler::Parser::Grammar;
+
 constant @entrypoints = <profiler_static profiler_dynamic spesh jit heapsnapshot>;
 
-grammar ConfProg {
+our grammar ConfProg is export {
     regex TOP {
         ["version" \s* "=" \s* "1" <.eol> || { die "Program has to start with a version. Only version = 1 is supported here" }]:
         <statement>+ %% <.eol>
