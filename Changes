@@ -1,6 +1,8 @@
 Revision history for App-MoarVM-ConfprogCompiler
 
 {{$NEXT}}
+    - Remove last remnant of Data::Dump::Tree
+    - Include a tool to turn app into a single file
 
 0.0.6  2019-07-16T22:56:27+02:00
     - Actually activate xor properly
