@@ -1,6 +1,8 @@
 Revision history for App-MoarVM-ConfprogCompiler
 
 {{$NEXT}}
+
+0.0.7  2019-07-19T19:05:59+02:00
     - Remove last remnant of Data::Dump::Tree
     - Include a tool to turn app into a single file
 

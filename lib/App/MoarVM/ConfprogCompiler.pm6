@@ -1,5 +1,5 @@
 use v6.c;
-unit class App::MoarVM::ConfprogCompiler:ver<0.0.6>:auth<cpan:TIMOTIMO>;
+unit class App::MoarVM::ConfprogCompiler:ver<0.0.7>:auth<cpan:TIMOTIMO>;
 
 use App::MoarVM::ConfprogCompiler::Parser;
 use App::MoarVM::ConfprogCompiler::Typesystem::Unifier;
