@@ -140,7 +140,7 @@ sub compile_call(Op $op, :$target) {
             }
             compile_node($end-label);
         }
-        when "starts-with" | "ends-with" | "contains" | "index" {
+        when "starts_with" | "ends_with" | "contains" | "index" {
             my $haystackreg = $*REGALLOC.fresh(RegString);
 
             compile_node($op.children[1], target => $haystackreg);
@@ -168,10 +168,10 @@ sub compile_call(Op $op, :$target) {
             }
             else {
                 my $positionreg = $*REGALLOC.fresh(RegInteger);
-                if $funcname eq "starts-with" {
+                if $funcname eq "starts_with" {
                     %op-gen<const_i64_16>($positionreg, 0);
                 }
-                elsif $funcname eq "ends-with" {
+                elsif $funcname eq "ends_with" {
                     %op-gen<chars>($positionreg, $haystackreg);
                     my $needlelenreg = $*REGALLOC.fresh(RegInteger);
                     %op-gen<chars>($needlelenreg, $needlereg);

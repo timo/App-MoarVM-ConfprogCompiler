@@ -114,7 +114,7 @@ multi sub unify_type(Op $node) {
                 when "choice" {
                     $node.type = CPInt;
                 }
-                when "starts-with" | "ends-with" | "contains" | "index" {
+                when "starts_with" | "ends_with" | "contains" | "index" {
                     $node.children[1].&unify_type() without $node.children[1].type;
                     $node.children[2].&unify_type() without $node.children[2].type;
                     $node.type = CPInt;
