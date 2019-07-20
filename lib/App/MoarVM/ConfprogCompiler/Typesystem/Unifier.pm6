@@ -3,10 +3,10 @@ unit module App::MoarVM::ConfprogCompiler::Typesystem::Unifier;
 use App::MoarVM::ConfprogCompiler::Typesystem;
 use App::MoarVM::ConfprogCompiler::Nodes;
 
-constant CPString = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<String>;
-constant CPInt = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<Int>;
-constant MVMFrame = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<MVMFrame>;
-constant MVMStaticFrame = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<MVMStaticFrame>;
+my \CPString = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<String>;
+my \CPInt = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<Int>;
+my \MVMFrame = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<MVMFrame>;
+my \MVMStaticFrame = %App::MoarVM::ConfprogCompiler::Typesystem::typesystem<MVMStaticFrame>;
 
 my %targets = %(
     profile => CPInt,
