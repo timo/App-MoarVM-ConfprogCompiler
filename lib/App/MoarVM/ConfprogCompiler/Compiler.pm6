@@ -132,11 +132,12 @@ sub compile_call(Op $op, :$target) {
 
             for $op.children<>[1..*].list Z @individual-labels {
                 %op-gen<const_n64>($comparison-value, $current-comparison-literal);
-                %op-gen<gt_n>($comparison-result, $value, $comparison-value);
+                %op-gen<ge_n>($comparison-result, $value, $comparison-value);
                 %op-gen<if_i>($comparison-result, .[1]);
                 compile_node(.[0], :$target);
                 %op-gen<goto>($end-label);
                 compile_node(.[1]);
+                $current-comparison-literal += $step;
             }
             compile_node($end-label);
         }
